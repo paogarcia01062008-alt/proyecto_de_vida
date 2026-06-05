@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paola Andrea ✈️ Mi Proyecto de Vida: Azafata</title>
+    <style>
+        /* ========== CSS COMPLETO ========== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #fdf8f0 0%, #fef5e7 100%);
+            color: #2c1810;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* NUBES DECORATIVAS */
+        .cloud {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 1000px;
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(8px);
+        }
+
+        .cloud1 { width: 180px; height: 100px; top: 10%; left: -50px; }
+        .cloud2 { width: 250px; height: 130px; bottom: 15%; right: -30px; }
+        .cloud3 { width: 120px; height: 70px; top: 40%; right: 15%; }
+        .cloud4 { width: 200px; height: 90px; bottom: 30%; left: 5%; }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1a2a4f, #2b4b6e);
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .avion-icon {
+            font-size: 3rem;
+            display: inline-block;
+            animation: vuelo 3s ease-in-out infinite;
+        }
+
+        @keyframes vuelo {
+            0% { transform: translateX(0px) translateY(0px); }
+            50% { transform: translateX(8px) translateY(-5px); }
+            100% { transform: translateX(0px) translateY(0px); }
+        }
+
+        /* FOTO DE PERFIL EN EL HEADER */
+        .foto-perfil {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .foto-perfil:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* TARJETAS */
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(255, 200, 150, 0.3);
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CONTENEDOR DE QUIEN SOY CON FOTO */
+        .quien-soy-container {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .quien-soy-texto {
+            flex: 2;
+        }
+
+        .quien-soy-foto {
+            flex: 1;
+            text-align: center;
+        }
+
+        .foto-tarjeta {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 30px;
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 3px solid #e67e22;
+            transition: transform 0.3s;
+        }
+
+        .foto-tarjeta:hover {
+            transform: scale(1.03);
+        }
+
+        /* TÍTULOS */
+        h2 {
+            color: #c4451b;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 6px solid #e67e22;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            color: #2b4b6e;
+            margin: 1rem 0 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* INFO DESTACADA */
+        .info-destacada {
+            background: #eef3fc;
+            padding: 1rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .info-item {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* PUNTO DE PARTIDA */
+        .punto-partida {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .punto-item {
+            flex: 1;
+            background: #fff0e0;
+            border-radius: 20px;
+            padding: 1rem;
+        }
+
+        /* METAS GRID */
+        .grid-metas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .meta-card {
+            background: linear-gradient(120deg, #fff6ed, #fff);
+            border-radius: 24px;
+            padding: 1.2rem;
+            border-bottom: 4px solid #e67e22;
+            transition: transform 0.2s;
+        }
+
+        .meta-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* LISTA DE PASOS */
+        .ruta-pasos {
+            list-style: none;
+        }
+
+        .ruta-pasos li {
+            background: #fdf3e6;
+            margin: 0.8rem 0;
+            padding: 0.8rem 1rem;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .ruta-pasos li:hover {
+            background: #f7e5d2;
+        }
+
+        .check {
+            background: #2c7a4d;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .pendiente {
+            background: #b8632c;
+        }
+
+        /* RECURSOS GRATIS */
+        .recurso-gratis {
+            background: linear-gradient(135deg, #e6f4ea, #d4ede0);
+            border-left: 8px solid #2e7d32;
+            padding: 1.2rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        /* BOTONES */
+        .boton {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.6rem;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .boton:hover {
+            background: #bf5e0e;
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .boton:active {
+            transform: scale(0.98);
+        }
+
+        .boton-pequeno {
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+        }
+
+        /* PROGRESO */
+        .progreso-botones {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        progress {
+            width: 100%;
+            height: 22px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        progress::-webkit-progress-bar { 
+            background: #f0e2d4; 
+            border-radius: 20px; 
+        }
+
+        progress::-webkit-progress-value { 
+            background: linear-gradient(90deg, #e67e22, #f39c12);
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+        progress::-moz-progress-bar {
+            background: linear-gradient(90deg, #e67e22, #f39c12);
+            border-radius: 20px;
+        }
+
+        hr {
+            margin: 1.2rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e67e22, transparent);
+        }
+
+        /* CITA */
+        .cita {
+            font-style: italic;
+            font-size: 1.1rem;
+            background: #fef9e6;
+            padding: 1.2rem;
+            border-radius: 24px;
+            border-left: 5px solid #e67e22;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a2a4f;
+            color: #e0e7ff;
+            text-align: center;
+            padding: 2rem;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 650px) {
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.4rem; }
+            .container { padding: 0 1rem; }
+            .card { padding: 1.2rem; }
+            .info-item { font-size: 0.85rem; }
+            .boton { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+            .quien-soy-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .foto-tarjeta {
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 2rem 1rem; }
+            .avion-icon { font-size: 2rem; }
+            .tagline { font-size: 0.9rem; }
+            .punto-partida { flex-direction: column; }
+            .foto-perfil {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="cloud cloud4"></div>
+
+    <header>
+        <!-- FOTO DE PERFIL EN EL ENCABEZADO (foto pao.jpeg) -->
+        <img src="foto pao.jpeg" alt="Paola Andrea" class="foto-perfil" onerror="this.style.display='none'">
+        <div class="avion-icon">✈️🛩️</div>
+        <h1>Paola Andrea López García</h1>
+        <p class="tagline">✧ Futura Auxiliar de Vuelo ✧</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">📅 01 · Junio · 2008  |  🌿 Vereda La Elvira</p>
+    </header>
+
+    <div class="container">
+
+        <!-- TARJETA ¿QUIÉN SOY? CON FOTO -->
+        <div class="card">
+            <h2>✨ ¿Quién soy?</h2>
+            <div class="quien-soy-container">
+                <div class="quien-soy-texto">
+                    <p>Hola, soy Paola. Vivo en la hermosa vereda <strong>La Elvira</strong>. Desde pequeña sueño con trabajar en aerolíneas, atender pasajeros, velar por su seguridad y ver el mundo desde las nubes. <strong>Seré azafata</strong>, aunque hoy no tenga los recursos. Cada paso pequeño me acerca.</p>
+                    <div class="info-destacada">
+                        <span class="info-item">🎂 16 años (2025)</span>
+                        <span class="info-item">📍 Vereda La Elvira - Colombia</span>
+                        <span class="info-item">🎯 Meta: Tripulante de cabina</span>
+                    </div>
+                </div>
+                <div class="quien-soy-foto">
+                    <img src="foto pao.jpeg" alt="Paola Andrea López García" class="foto-tarjeta" onerror="this.src='https://via.placeholder.com/200x200?text=Paola'">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📌 Mi punto de partida</h2>
+            <div class="punto-partida">
+                <div class="punto-item">
+                    <p>⚠️ <strong>Recursos económicos</strong><br>Hoy no tengo para pagar un curso de azafata.</p>
+                </div>
+                <div class="punto-item">
+                    <p>📖 <strong>Idioma inglés</strong><br>Aún no tengo certificado ni nivel avanzado.</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem;">🌟 <strong>Pero tengo lo más importante:</strong> ganas, juventud, perseverancia y un sueño claro. ¡Y eso es imparable!</p>
+        </div>
+
+        <div class="card">
+            <h2>🗺️ Mi ruta hacia las nubes (sin dinero hoy)</h2>
+            <ul class="ruta-pasos">
+                <li><span class="check pendiente">1</span> <strong>Inglés desde cero, 100% gratis</strong> – Duolingo (app), videos de "Inglés desde cero" en YouTube, practicar 20 min diarios.</li>
+                <li><span class="check pendiente">2</span> <strong>Prepararme física y mentalmente</strong> – natación o caminatas en la vereda (resistencia), postura y expresión oral.</li>
+                <li><span class="check pendiente">3</span> <strong>Buscar becas y cursos gratuitos</strong> – SENA tiene "Servicios en aerolíneas" y "Atención al cliente". Inscribirme en convocatorias.</li>
+                <li><span class="check pendiente">4</span> <strong>Ahorro simbólico</strong> – aunque sea $2.000 o $5.000 semanales en una alcancía, sin presionarme.</li>
+                <li><span class="check pendiente">5</span> <strong>Certificado de inglés B1 gratis</strong> – Prepararme con "EF SET" (certificado gratuito) y luego avanzar.</li>
+                <li><span class="check pendiente">6</span> <strong>Primer empleo joven</strong> – a los 17-18 años buscar trabajo en atención al cliente para ahorrar para mi curso.</li>
+            </ul>
+            <button class="boton" id="btnAnimar">✈️ ¡Hoy empiezo con un paso!</button>
+        </div>
+
+        <div class="card">
+            <h2>⏳ Mis metas & tiempo</h2>
+            <div class="grid-metas">
+                <div class="meta-card">
+                    <h3>📆 6 meses</h3>
+                    <p>✅ Aprender 500 palabras en inglés.<br>✅ Terminar 2 unidades de Duolingo.<br>✅ Investigar becas SENA.</p>
+                </div>
+                <div class="meta-card">
+                    <h3>🌟 1 año</h3>
+                    <p>📌 Tener nivel A2 de inglés.<br>📌 Ahorrar al menos $150.000.<br>📌 Hacer un curso corto gratis de atención al cliente.</p>
+                </div>
+                <div class="meta-card">
+                    <h3>☁️ 2-3 años</h3>
+                    <p>🎯 Postular a curso de Auxiliar de vuelo con beca.<br>🎯 Tener inglés B1.<br>🎯 Trabajar medio tiempo y ahorrar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎁 Recursos gratis para hoy mismo</h2>
+            <div class="recurso-gratis">
+                <strong>📱 Inglés sin internet pesado:</strong> Duolingo (modo offline), Canal "Aprende Inglés con Adam" en YouTube.<br>
+                <strong>📚 Cursos SENA Virtual:</strong> "English Does Work" y "Servicio al cliente". ¡Totalmente gratis!<br>
+                <strong>🧠 Motivación:</strong> Podcast "Azafatas sin límites" en Spotify.<br>
+                <strong>💡 Certificado inglés válido:</strong> Prueba gratis "EF SET" para saber tu nivel.
+            </div>
+            <p style="margin-top: 0.8rem;">🔍 <strong>No necesitas dinero para empezar</strong> – solo un celular con datos básicos o wifi en la escuela/biblioteca.</p>
+        </div>
+
+        <div class="card">
+            <h2>📈 Mi progreso hoy</h2>
+            <p>Llevo un <strong id="porcentajeTexto">15%</strong> del camino hacia el nivel de inglés necesario. ¡Cada día cuenta!</p>
+            <progress value="15" max="100" id="progresoIngles"></progress>
+            <div class="progreso-botones">
+                <span>🔤 Hoy sé: el abecedario, saludos y números.</span>
+                <button class="boton boton-pequeno" id="btnAvance">+5% ¡Estudié!</button>
+            </div>
+            <hr>
+            <p><strong>💰 Ahorro soñado para el curso:</strong> $2'500.000 aprox. <br>
+            <strong>💵 Ahorro actual:</strong> <span id="ahorroActual">$12.500</span></p>
+            <button class="boton" id="btnAhorro">➕ Agregar $2.000 a mi alcancía</button>
+        </div>
+
+        <div class="card">
+            <h2>💌 Mi promesa</h2>
+            <div class="cita">
+                <p><em>"Paola, hoy 2025 empiezo desde La Elvira sin dinero ni inglés. Pero dentro de unos años, cuando vea esta página, recordaré que cada palabra en inglés aprendida, cada ahorro y cada hora de estudio fue un despegue hacia mi sueño. ¡Voy a lograrlo!"</em></p>
+                <p style="text-align: right; margin-top: 1rem;">✍️ Paola Andrea López G. - 01/06/2008</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>✈️ Vuelo 2028 - Destino: Cabina de pasajeros ✈️</p>
+        <p>Desde la Vereda La Elvira, con mucho corazón 🌿</p>
+        <p style="font-size: 0.8rem;">"No importa si hoy no tengo recursos, lo importante es que nunca dejo de soñar y construir"</p>
+    </footer>
+
+    <script>
+        // ========== JAVASCRIPT ==========
+        
+        // Botón "Hoy empiezo"
+        document.getElementById("btnAnimar").addEventListener("click", function() {
+            alert("¡Ya diste el paso más importante: decidir comenzar! ✅ Abre Duolingo ahora o escribe 'inglés básico' en YouTube. ¡Tú puedes, Paola!");
+        });
+
+        // Incrementar progreso inglés
+        let progreso = 15;
+        const progressBar = document.getElementById("progresoIngles");
+        const porcentajeTexto = document.getElementById("porcentajeTexto");
+        const btnAvance = document.getElementById("btnAvance");
+
+        btnAvance.addEventListener("click", function() {
+            if (progreso < 100) {
+                progreso = Math.min(progreso + 5, 100);
+                progressBar.value = progreso;
+                porcentajeTexto.innerText = progreso + "%";
+                
+                if (progreso === 100) {
+                    alert("🎉 ¡INCREÍBLE! Has alcanzado el 100% de tu meta de inglés. ¡Eres imparable! Ahora a preparar el examen.");
+                } else if (progreso === 50) {
+                    alert("🎯 ¡Vas por la mitad! Llevas 50% de tu meta de inglés. ¡Sigue así, Paola!");
+                } else if (progreso === 75) {
+                    alert("🔥 ¡75%! ¡Estás muy cerca de dominar el inglés! Sigue practicando.");
+                } else {
+                    alert("📚 +5% de inglés. ¡Así se avanza! Vas " + progreso + "% del camino.");
+                }
+            } else {
+                alert("✨ Ya completaste la meta de inglés. ¡Ahora practica para el examen y sigue soñando!");
+            }
+        });
+
+        // Simulador de ahorro
+        let ahorro = 12500;
+        const spanAhorro = document.getElementById("ahorroActual");
+        const btnAhorro = document.getElementById("btnAhorro");
+
+        btnAhorro.addEventListener("click", function() {
+            ahorro += 2000;
+            spanAhorro.innerText = "$" + ahorro.toLocaleString();
+            
+            if (ahorro >= 50000 && ahorro < 100000) {
+                alert("💪 ¡Genial! Ya llevas $" + ahorro.toLocaleString() + " ahorrados. ¡Cada moneda te acerca al curso de azafata!");
+            } else if (ahorro >= 100000 && ahorro < 500000) {
+                alert("🎉 ¡Eres increíble! $" + ahorro.toLocaleString() + " ahorrados. ¡Sueña en grande, Paola!");
+            } else if (ahorro >= 500000) {
+                alert("🌟 ¡MÁS DE MEDIO MILLÓN! Vas volando hacia tu meta. ¡Así se hace, Paola!");
+            } else {
+                alert("💸 Agregaste $2.000. ¡Perseverancia! Llevas $" + ahorro.toLocaleString());
+            }
+        });
+
+        console.log("✈️ ¡Página de Paola cargada! Tu foto 'foto pao.jpeg' se ve hermosa. Recuerda: pequeños pasos todos los días te llevarán a las nubes.");
+    </script>
+</body>
+</html>
